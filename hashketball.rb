@@ -228,11 +228,11 @@ def big_shoe_rebounds()
   return rebounds
 end
 
-def iterate_through_players_for(name, statistic)
+def iterate_through_players_for(name, stat)
   game_hash.each do |team, data|
     data[:players].each do |player|
       if player[:player_name] == name
-        return player[statistic] 
+        return player[stat] 
       end
     end
   end
