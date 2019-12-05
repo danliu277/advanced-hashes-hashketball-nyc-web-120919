@@ -208,7 +208,7 @@ def player_stats(name)
           next
         end
         result = player.delete_if do |key, value|
-          k == :player_name
+          key == :player_name
         end
       end
     end
