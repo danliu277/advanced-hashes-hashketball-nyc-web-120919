@@ -275,7 +275,6 @@ def winning_team()
 end
 
 def player_with_longest_name()
-  pp player_with_most_of(:player_name)
   return player_with_most_of(:player_name)
 end
 
