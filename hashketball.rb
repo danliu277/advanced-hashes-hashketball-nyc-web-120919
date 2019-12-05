@@ -240,16 +240,16 @@ end
 
 def player_with_most_of(stat)
   name = nil
-  amount_of_stat = 0
+  player_stat = 0
   game_hash.each do |team, data|
     data[:players].each do |player|
       if player[stat].is_a? String
-        if player[stat].length > amount_of_stat
-          amount_of_stat = player[stat].length
+        if player[stat].length > player_stat
+          player_stat = player[stat].length
           name = player[:player_name]
         end
-      elsif player[stat] > amount_of_stat
-        amount_of_stat = player[stat]
+      elsif player[stat] > player_stat
+        player_stat = player[stat]
         name = player[:player_name]
       end
     end
@@ -261,20 +261,17 @@ def most_points_scored()
   player_with_most_of(:points)
 end
 
-def winning_team
-  # Set up a hash to keep track of the points scored by each team. This way, we
-  # can iterate through each player, get their points scored, and increase the
-  # count in the hash.
-
-  scores = { 'Brooklyn Nets' => 0, 'Charlotte Hornets' => 0 }
-
-  game_hash.each do |_team, game_data|
+def winning_team()
+  scores = { 
+    'Brooklyn Nets' => 0, 
+    'Charlotte Hornets' => 0 
+  }
+  game_hash.each do |team, game_data|
     game_data[:players].each do |player|
       scores[game_data[:team_name]] += iterate_through_players_for(player[:player_name], :points)
     end
   end
-
-  scores.max_by { |_k, v| v }.first
+  return scores.max_by { |_k, v| v }.first
 end
 
 def player_with_longest_name
