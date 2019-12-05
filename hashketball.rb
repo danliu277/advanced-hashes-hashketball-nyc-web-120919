@@ -5,7 +5,7 @@ require 'pry'
 def game_hash
   {
     home: { team_name: 'Brooklyn Nets',
-            colors: %w[Black White],
+            colors: ["Black", "White"],
             players: [
               { player_name: 'Alan Anderson',
                 number: 0,
@@ -54,7 +54,7 @@ def game_hash
                 slam_dunks: 1 }
             ] },
     away: { team_name: 'Charlotte Hornets',
-            colors: %w[Turquoise Purple],
+            colors: ["Turquoise", "Purple"],
             players: [
               { player_name: 'Jeff Adrien',
                 number: 4,
