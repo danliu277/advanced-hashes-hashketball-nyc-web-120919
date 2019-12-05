@@ -129,7 +129,7 @@ def game_hash
 end
 
 def num_points_scored(player)
-  game_hash.each do |_place, team|
+  game_hash().each do |_place, team|
     team.each do |attribute, data|
       next unless attribute == :players
 
