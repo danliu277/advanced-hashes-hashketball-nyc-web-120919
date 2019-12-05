@@ -136,13 +136,9 @@ end
 def num_points_scored(player)
   game_hash().each do |place, team|
     team.each do |attribute, data|
-      if attribute == :players
-        continue
-      end
+      next unless attribute == :players
       data.each do |player|
-        if player[:player_name] == player
-          return player[:points] 
-        end
+        return player[:points] if player[:player_name] == player
       end
     end
   end
