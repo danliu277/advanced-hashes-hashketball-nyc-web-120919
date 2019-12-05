@@ -204,7 +204,7 @@ def player_stats(name)
         next
       end
       game_hash[place][attribute].each do |player|
-        if player[:player_name] != namename
+        if player[:player_name] != name
           next
         end
         new_hash = player.delete_if do |k, _v|
