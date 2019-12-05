@@ -266,15 +266,15 @@ def winning_team()
     'Brooklyn Nets' => 0, 
     'Charlotte Hornets' => 0 
   }
-  game_hash.each do |team, game_data|
-    game_data[:players].each do |player|
-      scores[game_data[:team_name]] += iterate_through_players_for(player[:player_name], :points)
+  game_hash.each do |team, data|
+    data[:players].each do |player|
+      scores[data[:team_name]] += iterate_through_players_for(player[:player_name], :points)
     end
   end
-  return scores.max_by { |_k, v| v }.first
+  return scores.max_by { |key, value| value }.first
 end
 
-def player_with_longest_name
+def player_with_longest_name()
   player_with_most_of(:player_name)
 end
 
