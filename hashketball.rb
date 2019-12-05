@@ -73,7 +73,8 @@ def game_hash
         "Purple"
       ],
       players: [
-        { player_name: 'Jeff Adrien',
+        { 
+          player_name: 'Jeff Adrien',
           number: 4,
           shoe: 18,
           points: 10,
@@ -83,7 +84,8 @@ def game_hash
           blocks: 7,
           slam_dunks: 2 
         },
-        { player_name: 'Bismack Biyombo',
+        { 
+          player_name: 'Bismack Biyombo',
           number: 0,
           shoe: 16,
           points: 12,
@@ -93,7 +95,8 @@ def game_hash
           blocks: 15,
           slam_dunks: 10
         },
-        { player_name: 'DeSagna Diop',
+        { 
+          player_name: 'DeSagna Diop',
           number: 2,
           shoe: 14,
           points: 24,
@@ -103,7 +106,8 @@ def game_hash
           blocks: 5,
           slam_dunks: 5
         },
-        { player_name: 'Ben Gordon',
+        { 
+          player_name: 'Ben Gordon',
           number: 8,
           shoe: 15,
           points: 33,
@@ -113,7 +117,8 @@ def game_hash
           blocks: 1,
           slam_dunks: 0
         },
-        { player_name: 'Kemba Walker',
+        { 
+          player_name: 'Kemba Walker',
           number: 33,
           shoe: 15,
           points: 6,
@@ -129,12 +134,13 @@ def game_hash
 end
 
 def num_points_scored(player)
-  game_hash().each do |_place, team|
+  game_hash().each do |place, team|
     team.each do |attribute, data|
       next unless attribute == :players
-
       data.each do |player|
-        return player[:points] if player[:player_name] == player
+        if player[:player_name] == player
+          return player[:points] 
+        end
       end
     end
   end
