@@ -178,20 +178,22 @@ def team_names
   return data
 end
 
-def player_numbers(team_name)
-  nums = []
-  game_hash.each do |_place, team|
-    next unless team[:team_name] == team_name
-
+def player_numbers(name)
+  result = []
+  game_hash.each do |place, team|
+    if team[:team_name] != name
+      next
+    end
     team.each do |attribute, data|
-      next unless attribute == :players
-
-      data.each do |data|
-        nums << data[:number]
+      if attribute != :players
+        next
+      end
+      data.each do |x|
+        result.push(x[:number])
       end
     end
   end
-  nums
+  result
 end
 
 def player_stats(sought_player_name)
